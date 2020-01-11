@@ -1,0 +1,85 @@
+div.wrapper {
+    padding: 1.5em;
+}
+
+div.desc-wrapper {
+    padding: 1em;
+    padding-left: 2em;
+    width: 25vw;
+}
+
+div.content-wrapper, div.input-wrapper {
+    margin: 2em;
+    padding: 1em;
+    width: 65vw;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
+
+div.content-wrapper {
+    height: 65vh;
+    margin-bottom: 0;
+    overflow-y: scroll;
+}
+
+div.input-wrapper {
+    width: 63.8vw;
+    margin-top: 0;
+    padding: 0;
+    padding-left: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+.invisible {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    z-index: 2;
+    font-weight: lighter;
+    margin-bottom: -0.2em;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+mat-form-field {
+    padding-right: 1em;
+    width: stretch;
+}
+
+button.results {
+    margin-top: 0.5em;
+    padding-left: 1em;
+    height: 3em;
+    width: 10em;
+    text-align: left;
+    font-size: 2em;
+    background: rgb(224, 108, 147);
+}
+
+.results-send {
+    margin-left: 4.3em;
+}
+
+.send {
+    color: rgb(255, 101, 160);
+}
+
+.send-disabled {
+    color: gray;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

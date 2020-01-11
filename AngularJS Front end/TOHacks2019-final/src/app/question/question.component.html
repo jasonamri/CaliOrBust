@@ -1,0 +1,47 @@
+<div class="wrapper" fxLayoutAlign="center center" fxLayoutGap="2em">
+  <div class="desc-wrapper">
+    <div *ngIf="!end; else gotoResults">
+      <h2>{{ descTitle }}</h2>
+      <p>
+        {{ descDesc }}
+      </p>
+    </div>
+    <ng-template #gotoResults>
+      <div class="end-wrapper">
+        <h2>
+          The interview has ended. Feel free to review your answers, or start over again!
+        </h2>
+        <a routerLink="/">
+          <button class="results" mat-button>
+            Restart
+            <mat-icon class="results-send">send</mat-icon>
+          </button>
+        </a>
+      </div>
+    </ng-template>
+  </div>  
+  <div fxLayout="column" fxLayoutGap="1em">
+    <div #chatbox class="content-wrapper mat-elevation-z4" fxLayout="column">
+      <div class="chat" style="height: 20em">
+        <div fxLayout="column" fxLayoutGap="1em">
+          <div class="message" *ngFor="let message of messages" ng-attr-id="curCategory + curQuestion">
+            <div *ngIf="!message.sentByAI; else sentByAI" fxLayoutAlign="end">
+              <app-message [sentByAI]="message.sentByAI" [messageText]="message.message"></app-message>
+            </div>
+            <ng-template #sentByAI>
+              <app-message [sentByAI]="message.sentByAI" [technical]="message.technical" [messageText]="message.message"></app-message>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="input-wrapper mat-elevation-z4">
+      <mat-form-field class="no-line">
+        <input class="invisible" [disabled]="end" matInput id="user-message" [(ngModel)]="curMessage" (keyup.enter)="nextMessage()">
+        <button [disabled]="end" mat-icon-button matSuffix (click)="nextMessage()">
+            <mat-icon class="send" [ngClass]="{ 'send-disabled' : end }">send</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
